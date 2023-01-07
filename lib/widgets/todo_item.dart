@@ -5,24 +5,39 @@ import 'package:todo_list/model/todo.dart';
 
 class ToDoItems extends StatelessWidget {
   final ToDo todo;
+  final onToDoChange;
+  final onDeleteItem;
 
-  const ToDoItems({super.key, required this.todo});
+  const ToDoItems({
+    super.key,
+    required this.todo,
+    required this.onToDoChange,
+    required this.onDeleteItem,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
-        onTap: () {},
+        onTap: () {
+          onToDoChange(todo);
+        },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         leading: Icon(
-          Icons.check_box,
+          todo.isDone ? Icons.check_box : Icons.check_box_outline_blank,
           color: Colors.white,
         ),
-        title: Text(todo.todoText!),
+        title: Text(
+          todo.todoText!,
+          style: TextStyle(
+            fontSize: 16,
+            decoration: todo.isDone ? TextDecoration.lineThrough : null,
+          ),
+        ),
         trailing: IconButton(
             onPressed: () {
-              print("Clicked button to delete");
+              onDeleteItem(todo.id);
             },
             icon: Icon(
               Icons.delete_outline,
