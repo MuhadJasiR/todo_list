@@ -29,11 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(
+                        margin: const EdgeInsets.only(
                           top: 50,
                           bottom: 20,
                         ),
-                        child: Text(
+                        child: const Text(
                           "All ToDo's",
                           style: TextStyle(
                             fontSize: 30,
@@ -59,19 +59,20 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       bottom: 20,
                       right: 20,
                       left: 20,
                     ),
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 5,
                     ),
                     decoration: BoxDecoration(
                         color: Colors.grey[800],
+                        // ignore: prefer_const_literals_to_create_immutables
                         boxShadow: [
-                          BoxShadow(
+                          const BoxShadow(
                             color: Colors.black38,
                             offset: Offset(0, 0),
                             blurRadius: 10.0,
@@ -81,24 +82,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(10)),
                     child: TextField(
                       controller: _todoController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: "Add a new todo item",
                           border: InputBorder.none),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 20, right: 20),
+                  margin: const EdgeInsets.only(bottom: 20, right: 20),
                   child: ElevatedButton(
                     onPressed: () {
                       _addToDoItem(_todoController.text);
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black54,
-                      minimumSize: Size(60, 60),
+                      minimumSize: const Size(60, 60),
                       elevation: 10,
                     ),
-                    child: Text(
+                    child: const Text(
                       "+",
                       style: TextStyle(fontSize: 40),
                     ),
